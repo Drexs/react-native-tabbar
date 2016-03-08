@@ -50,7 +50,7 @@ export default class App extends Component {
     return (
       <Tabbar ref="myTabbar" barColor={'gray'}>
         <Tab name="home">
-          <IconWithBar label="Home" type={glypy.Home} from={'icomoon'}/>
+          <IconWithBar label="Home" type={glypy.Home} ontype={glypy.Home} from={'icomoon'}/>
           <RawContent>
             <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent:'center' }}>
               <Text onPress={()=>this.tabbarToggle()}>Toggle Tabbar</Text>
@@ -58,7 +58,7 @@ export default class App extends Component {
           </RawContent>
         </Tab>
         <Tab name="camera">
-          <IconWithBar label="Camera" type={glypy.Camera} from={'icomoon'}/>
+          <IconWithBar label="Camera" type={glypy.Camera} ontype={glypy.Camera} from={'icomoon'}/>
           <RawContent>
             <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent:'center' }}>
               <Text onPress={()=>console.log('camera')}>Camera</Text>
@@ -66,7 +66,7 @@ export default class App extends Component {
           </RawContent>
         </Tab>
         <Tab name="stats">
-          <IconWithBar label="Stats" type={glypy.Stat} from={'icomoon'}/>
+          <IconWithBar label="Stats" type={glypy.Stat} ontype={glypy.Stat} from={'icomoon'}/>
           <RawContent>
             <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent:'center' }}>
               <Text onPress={()=>console.log('stats')}>Stats</Text>
@@ -74,13 +74,13 @@ export default class App extends Component {
           </RawContent>
         </Tab>
         <Tab name="favorite">
-          <IconWithBar label="Fav" type={glypy.Favorite} from={'icomoon'}/>
+          <IconWithBar label="Fav" type={glypy.Favorite} ontype={glypy.Favorite} from={'icomoon'}/>
           <RawContent>
             <MyLongScrollView/>
           </RawContent>
         </Tab>
         <Tab name="settings">
-          <IconWithBar label="Settings" type={glypy.Settings} from={'icomoon'}/>
+          <IconWithBar label="Settings" type={glypy.Settings} ontype={glypy.Settings} from={'icomoon'}/>
           <RawContent>
             <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', justifyContent:'center' }}>
               <Text onPress={()=>console.log('settings')}>Settings</Text>
