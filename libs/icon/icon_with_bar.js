@@ -42,37 +42,38 @@ class IconWithBar extends Component {
     const {
       label,
       type,
+      ontype,
       from,
       size,
       iconStyle,
       onActiveColor,
       onInactiveColor,
       onActiveColorBar,
-      onInactiveColorBar,
-      ...rest
+      onInactiveColorBar
     } = this.props;
     const { selected } = this.state;
 
     const color = selected? onActiveColor : onInactiveColor
     const barColor = selected? onActiveColorBar : onInactiveColorBar;
+    const types = selected? ontype : type;
     const borderWidth = selected? 2 : 1;
     const padding = selected? 0 : 1;
 
     let icon = null;
-    if (!!type && !from) {
+    if (!!types && !from) {
       throw new Error("icon must contains 'type' and 'from' values");
-    } else if (!type && !!from) {
+    } else if (!types && !!from) {
       throw new Error("icon must contains 'type' and 'from' values");
-    } else if (!!type && !!from) {
+    } else if (!!types && !!from) {
       icon = (
         <Text style={[iconStyle, { fontSize: size, fontFamily: from, color: color }]}>
-          {type}
+          {types}
         </Text>
       );
     }
 
     return (
-      <TouchableWithoutFeedback {...rest} style={{ flex: 1 }} onPress={this.onPress.bind(this)}>
+      <TouchableWithoutFeedback style={{ flex: 1 }} onPress={this.onPress.bind(this)}>
         <View style={[styles.icon, { borderTopWidth: borderWidth, borderTopColor: barColor, paddingTop: padding }]}>
           {icon}
           <View style={{ paddingTop: 5 }}>
